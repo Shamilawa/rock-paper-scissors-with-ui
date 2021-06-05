@@ -188,11 +188,6 @@ header {
         width: 32px;
     }
 
-    .game-selection > img {
-        width: 40px;
-        height: 42px;
-    }
-
 }
 
 @media only screen and (max-width:320px) {
@@ -205,13 +200,14 @@ header {
         width: 22px;
     }
 
-    .game-selection > img {
-        width: 40px;
-        height: 42px;
+    header {
+        font-size: 16px;
+        padding-top: 15px;
+        padding-bottom: 11px;
     }
 
     .game-result .game-selection{
-        padding: 8px;
+        padding: 15px;
     }
 
 
