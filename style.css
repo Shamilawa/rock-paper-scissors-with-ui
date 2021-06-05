@@ -89,9 +89,13 @@ header {
     padding: 15px;
     text-align: center;
     background-color: #363333;
+    width: 92px;
+    height: 97px;
 }
 
-.game-selection > img {
+
+/*Game Result Selection - Add this in JS*/
+.gameResult {
     width: 60px;
     height: 62px;
 }
@@ -99,6 +103,8 @@ header {
 .game-result > h3 {
     font-size: 16px;
     font-weight: 500;
+    width: 100px;
+    text-align: center;
 }
 
 .full-result-holder {
@@ -151,5 +157,68 @@ header {
     padding: 15px;
     font-weight: 100;
     color: #E16428;
+}
+
+
+/*Image Invisible Class*/
+.hiddleItems {
+    visibility: hidden;
+}
+
+
+@media only screen and (max-width:411px) {
+    .full-result-holder{
+        min-height: 250px;
+    }
+}
+
+@media only screen and (max-width:375px) {
+    .full-result-holder{
+        min-height: 200px;
+    }
+}
+
+@media only screen and (max-width:360px) {
+    .full-result-holder{
+        min-height: 190px;
+    }
+
+    .game-button > img {
+        height: 30px;
+        width: 32px;
+    }
+
+    .game-selection > img {
+        width: 40px;
+        height: 42px;
+    }
+
+}
+
+@media only screen and (max-width:320px) {
+    .full-result-holder{
+        min-height: 150px;
+    }
+
+    .game-button > img {
+        height: 20px;
+        width: 22px;
+    }
+
+    .game-selection > img {
+        width: 40px;
+        height: 42px;
+    }
+
+    .game-result .game-selection{
+        padding: 8px;
+    }
+
+
+}
+
+/*Add These CSS using JS*/
+.btnClick-effect {
+   border: 1.5px solid white !important;
 }
 
