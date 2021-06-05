@@ -266,7 +266,7 @@ function gameResult(playerChoice, computerChoice) {
         btnSection.style.display = "none";
 
         var finalResultSection = document.querySelector(".word p");
-        finalResultSection.style.marginTop = "50px";
+        finalResultSection.style.marginTop = "25px";
         
         if(playerScore == computerScore) {
 
