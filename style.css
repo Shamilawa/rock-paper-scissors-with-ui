@@ -18,8 +18,9 @@ body, html {
 .container {
     width: 100%;
     background-color: #272121;
+    height : auto;
     border: 1px solid rgba(246, 233, 233, 0.29);
-    height: 100%;
+    
 }
 
 header {
