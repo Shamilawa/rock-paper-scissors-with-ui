@@ -23,13 +23,13 @@ body, html {
 }
 
 header {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 500;
     color: #272121;
     text-align: center;
     margin-bottom: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     background-color: #f6e9e9;
 }
 
