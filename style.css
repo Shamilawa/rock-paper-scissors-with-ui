@@ -109,6 +109,7 @@ header {
 
 .full-result-holder {
     min-height: 210px;
+    visibility: hidden;
 }
 
 .game-round-result {
@@ -157,6 +158,22 @@ header {
     padding: 15px;
     font-weight: 100;
     color: #E16428;
+}
+
+.replay-section {
+    text-align: center;
+}
+
+.replay {
+    padding: 15px;
+    background-color: #E16428;
+    border: none;
+    width: 100%;
+    color: #f6e9e9;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    display: none;
 }
 
 
@@ -216,5 +233,13 @@ header {
 /*Add These CSS using JS*/
 .btnClick-effect {
    border: 1.5px solid white !important;
+}
+
+.result-transision {
+    transition: 0.5s ease-out;
+}
+
+.result-visibility {
+    visibility: visible;
 }
 

@@ -15,10 +15,16 @@ for (var i = 0; i < x; i++) {
 
 }
 
+    //play again button
+    var finalBtn = document.querySelector(".replay");
+    finalBtn.addEventListener("click", refreshPage);
+
+    
+
     //setting defualt value for the scoreboard
     var playerScore = 0;
     var computerScore = 0;
-    var gameround = 0;
+    var gameround = 1;
 
     var playerScoreBoard = document.querySelector(".player-score");
     playerScoreBoard.innerHTML = playerScore;
@@ -121,6 +127,12 @@ function scissorsSeleciotn() {
 
 //All the function--------------------------
 
+//Page Refresh Function
+function refreshPage(){
+    window.location.reload();
+} 
+
+
 //adding sound on button click
 function btnClickSound() {
     var audio = new Audio("sounds/btnclick.wav");
@@ -147,7 +159,6 @@ function computerChoice() {
         
     }
 
-    console.log(comChoice);
     return comChoice;
     
 }
@@ -157,23 +168,28 @@ function computerChoice() {
 function gameResult(playerChoice, computerChoice) {
 
     var roundResult = document.querySelector(".game-result h3");
+    var resultHolder = "";
 
     if(playerChoice == computerChoice) { //if both choices are same
 
+        
         roundResult.innerHTML = "It is a Draw";
+        resultHolder = "draw";
         playerScore = playerScore;
         computerScore = computerScore;
 
         //Updating Scoreboard
         playerScoreBoard.innerHTML = playerScore;
         computerScoreBoard.innerHTML = computerScore;
-        
+
 
     }else if(playerChoice == "rock"){ //when player select rock
 
         if(computerChoice == "paper") {
-
+            
             roundResult.innerHTML = "You Loss...💩";
+            resultHolder = "loss";
+
             computerScore++;
 
             //Updating Scoreboard
@@ -182,6 +198,7 @@ function gameResult(playerChoice, computerChoice) {
         }else {
 
             roundResult.innerHTML = "You Won...🔥"
+            resultHolder = "won";
             playerScore++;
 
             //Updating Scoreboard
@@ -194,6 +211,7 @@ function gameResult(playerChoice, computerChoice) {
         if(computerChoice == "scissors") {
 
             roundResult.innerHTML = "You Loss...💩";
+            resultHolder = "loss";
 
             computerScore++;
 
@@ -203,6 +221,7 @@ function gameResult(playerChoice, computerChoice) {
         }else { //when player select scissors
 
             roundResult.innerHTML = "You Won...🔥";
+            resultHolder = "won";
 
             playerScore++;
 
@@ -216,6 +235,7 @@ function gameResult(playerChoice, computerChoice) {
         if(computerChoice == "rock") {
 
             roundResult.innerHTML = "You Loss...💩";
+            resultHolder = "loss";
 
             computerScore++;
 
@@ -225,6 +245,7 @@ function gameResult(playerChoice, computerChoice) {
         }else {
 
             roundResult.innerHTML = "You Won...🔥";
+            resultHolder = "won";
 
             playerScore++;
 
@@ -234,6 +255,75 @@ function gameResult(playerChoice, computerChoice) {
         }
 
     }
+
+    //Each Round Result
+    roundResultTextManipulator(gameround, resultHolder, playerChoice, computerChoice);
+
+    if(gameround > 5) {
+
+        var replayBnt = document.querySelector(".replay");
+        var btnSection = document.querySelector(".game-btn");
+        btnSection.style.display = "none";
+
+        var finalResultSection = document.querySelector(".word p");
+        finalResultSection.style.marginTop = "50px";
+        
+        if(playerScore == computerScore) {
+
+            finalResultSection.innerHTML = "You Fool, You Can't Even Beat an AI. Shame on You🤦‍♀️🤷‍♂️";
+
+
+        }else if(playerScore > computerScore) {
+
+            finalResultSection.innerHTML = "Yoo Pat Your BUTT.. You Just Beat an AI🏅🏅";
+
+        }else {
+
+            finalResultSection.innerHTML = "Opps You Piece of POOP... You Just Lost to an AI💩💩";
+
+        }
+
+        replayBnt.style.display = "block";
+
+    }
+
+    
+
+
+}
+
+
+function roundResultTextManipulator(roundNo , resultHolder, playerChoice, computerChoice) {
+
+    var resultPanel = document.querySelector(".round"+roundNo);
+    var resultTxt = document.querySelector(".round"+roundNo+ " h4"); //.round1 h4
+    var playerImg = document.querySelector(".round" + roundNo + " .player-choice img");//.round1 .player-choice-image
+    var compImg = document.querySelector(".round" + roundNo + " .computer-choice img");
+
+    playerImg.setAttribute("src", "images/"+playerChoice+".svg");
+    compImg.setAttribute("src", "images/"+computerChoice+".svg");
+
+        if(resultHolder == "won") {
+
+            resultTxt.style.color = "green";
+            resultTxt.style.fontWeight = "600";
+            resultTxt.innerHTML =  playerChoice.toUpperCase() + " beat " + computerChoice.toUpperCase();
+
+        }else if(resultHolder == "loss") {
+
+            resultTxt.style.color = "red";
+            resultTxt.style.fontWeight = "600";
+            resultTxt.innerHTML =  playerChoice.toUpperCase() + " beat to " + computerChoice.toUpperCase();
+
+        }else {
+
+            resultTxt.innerHTML = "Round Draw";
+
+        }
+
+        resultPanel.classList.add("result-visibility");
+        gameround++;
+
 }
 
 
